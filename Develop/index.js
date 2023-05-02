@@ -12,12 +12,12 @@ const questions = [
 	},
 	{
 		type: 'input',
-		message: 'Provide a short description explaining the what, why, and how of your project.',
+		message: 'Provide a short description explaining the what, why, and how.',
 		name: 'description',
 	},
 	{
 		type: 'input',
-		message: 'What are the steps required to install your project?',
+		message: 'Can you provide the steps needed to install your project?',
 		name: 'installation',
 	},
 	{
@@ -32,7 +32,7 @@ const questions = [
 	},
 	{
 		type: 'input',
-		message: 'If you would have provided tests for your application, please provide examples on how to run them.',
+		message: 'If you would have provided tests for your application, please provide examples of how to run them.',
 		name: 'tests',
 	},
 	{
@@ -59,7 +59,7 @@ const questions = [
 	},
 	{
 		type: 'input',
-		message: 'What is your Github username?',
+		message: 'What is your GitHub username?',
 		name: 'username',
 	},
 	{
