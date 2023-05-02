@@ -75,14 +75,18 @@ const questions = [
 ]
 
 // TODO: Create a function to write README file
-function writeToFile(fileName, template) {}
+function writeToFile(fileName, template) {
+	fs.writeFile(fileName, template, err => {
+		err ? console.error(err) : console.log(`${fileName} has been successfully generated and saved.`)
+	})
+}
 
 // TODO: Create a function to initialize app
 function init() {
 	inquirer
 		.prompt(questions)
 		.then(answers => {
-			const fileName = answers.file
+			const fileName = `${answers.file}.md`
 			const template = markdown(answers)
 			writeToFile(fileName, template)
 		})
