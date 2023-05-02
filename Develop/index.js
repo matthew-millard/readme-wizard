@@ -38,7 +38,7 @@ const questions = [
 	{
 		type: 'list',
 		message: 'Please choose a license for your application.',
-		choice: [
+		choices: [
 			'None',
 			'Apache License 2.0',
 			'GNU General Public License v3.0',
@@ -73,7 +73,12 @@ const questions = [
 function writeToFile(fileName, data) {}
 
 // TODO: Create a function to initialize app
-function init() {}
+function init() {
+	inquirer
+		.prompt(questions)
+		.then(answers => markdown(answers))
+		.catch(err => console.error(err))
+}
 
 // Function call to initialize app
 init()
