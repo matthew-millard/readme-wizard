@@ -67,16 +67,25 @@ const questions = [
 		message: 'What is your email address?',
 		name: 'email',
 	},
+	{
+		type: 'input',
+		message: 'Lastly, what would you like to name your markdown file?',
+		name: 'file',
+	},
 ]
 
 // TODO: Create a function to write README file
-function writeToFile(fileName, data) {}
+function writeToFile(fileName, template) {}
 
 // TODO: Create a function to initialize app
 function init() {
 	inquirer
 		.prompt(questions)
-		.then(answers => markdown(answers))
+		.then(answers => {
+			const fileName = answers.file
+			const template = markdown(answers)
+			writeToFile(fileName, template)
+		})
 		.catch(err => console.error(err))
 }
 
