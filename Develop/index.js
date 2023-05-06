@@ -1,7 +1,8 @@
 // TODO: Include packages needed for this application
 const inquirer = require('inquirer')
 const fs = require('fs')
-const markdown = require('./utils/generateMarkdown.js')
+const utils = require('./utils/generateMarkdown.js')
+const { generateMarkdown: markdown, getLicenseBadge, getLicenseDescription, renderLicenseSection } = utils
 
 // TODO: Create an array of questions for user input
 const questions = [
@@ -87,8 +88,13 @@ function init() {
 		.prompt(questions)
 		.then(answers => {
 			const fileName = `${answers.file}.md`
-			const template = markdown(answers)
-			writeToFile(fileName, template)
+			const licenseBadge = getLicenseBadge(answers)
+			const licenseDescription = getLicenseDescription(answers)
+			return licenseDescription.then(licenseDescription => {
+				const licenseSection = renderLicenseSection(licenseDescription, licenseBadge)
+				const template = markdown(answers, licenseSection)
+				writeToFile(fileName, template)
+			})
 		})
 		.catch(err => console.error(err))
 }
