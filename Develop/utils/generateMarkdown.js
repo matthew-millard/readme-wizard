@@ -3,55 +3,55 @@
 function getLicenseBadge({ license }) {
 	switch (license) {
 		case 'Apache License 2.0':
-			return '![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)'
+			return ['![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)', 'Apache-2.0']
 			break
 		case 'GNU General Public License v3.0':
-			return '![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)'
+			return ['![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)', 'GPL-3.0-only']
 			break
 		case 'MIT License':
-			return '![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)'
+			return ['![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)', 'MIT']
 			break
 		case 'BSD 2-Clause "Simplified" license':
-			return '![License: BSD 2-Clause](https://img.shields.io/badge/License-BSD%202--Clause-orange.svg)'
+			return ['![License: BSD 2-Clause](https://img.shields.io/badge/License-BSD%202--Clause-orange.svg)', 'BSD-2-Clause']
 			break
 		case 'BSD 3-Clause "New" or "Revised" License':
-			return '![License: BSD 3-Clause](https://img.shields.io/badge/License-BSD%203--Clause-blue.svg)'
+			return ['![License: BSD 3-Clause](https://img.shields.io/badge/License-BSD%203--Clause-blue.svg)', 'BSD-3-Clause']
 			break
 		case 'Boost Software License 1.0':
-			return '![License: Boost 1.0](https://img.shields.io/badge/License-Boost%201.0-lightblue.svg)'
+			return ['![License: Boost 1.0](https://img.shields.io/badge/License-Boost%201.0-lightblue.svg)', 'BSL-1.0']
 			break
 		case 'Creative Commons Zero v1.0 Universal':
-			return '![License: CC0-1.0](https://licensebuttons.net/l/zero/1.0/80x15.png)'
+			return ['![License: CC0-1.0](https://licensebuttons.net/l/zero/1.0/80x15.png)', 'CC0-1.0']
 			break
 		case 'Eclipse Public License 2.0':
-			return '![License: EPL 2.0](https://img.shields.io/badge/License-EPL%202.0-red.svg)'
+			return ['![License: EPL 2.0](https://img.shields.io/badge/License-EPL%202.0-red.svg)', 'EPL-2.0']
 			break
 		case 'GNU Affero General Public License v3.0':
-			return '![License: AGPL v3](https://img.shields.io/badge/License-AGPL%20v3-blue.svg)'
+			return ['![License: AGPL v3](https://img.shields.io/badge/License-AGPL%20v3-blue.svg)', 'AGPL-3.0']
 			break
 		case 'GNU General Public License v2.0':
-			return '![License: GPL v2](https://img.shields.io/badge/License-GPL%20v2-blue.svg)'
+			return ['![License: GPL v2](https://img.shields.io/badge/License-GPL%20v2-blue.svg)', 'GPL-2.0']
 			break
 		case 'GNU Lesser General Public License v2.1':
-			return '![License: LGPL v2.1](https://img.shields.io/badge/License-LGPL%20v2.1-blue.svg)'
+			return ['![License: LGPL v2.1](https://img.shields.io/badge/License-LGPL%20v2.1-blue.svg)', 'LGPL-2.1']
 			break
 		case 'Mozilla Public License 2.0':
-			return '![License: MPL 2.0](https://img.shields.io/badge/License-MPL%202.0-brightgreen.svg)'
+			return ['![License: MPL 2.0](https://img.shields.io/badge/License-MPL%202.0-brightgreen.svg)', 'MPL-2.0']
 			break
 		case 'The Unlicense':
-			return '![License: Unlicense](https://img.shields.io/badge/license-Unlicense-blue.svg)'
+			return ['![License: Unlicense](https://img.shields.io/badge/license-Unlicense-blue.svg)', 'Unlicense']
 			break
 		default:
 			return ''
 	}
 }
 
-// TODO: Create a function that returns the license link
+// TODO: Create a function that returns the license description
 // If there is no license, return an empty string
-async function getLicenseDescription({ license }) {
+async function getLicenseDescription(license) {
 	const axios = require('axios')
 	try {
-		const response = await axios.get(`https://api.github.com/licenses/MIT`)
+		const response = await axios.get(`https://api.github.com/licenses/${license}`)
 
 		if (response.status === 200) {
 			return response.data.description
@@ -69,9 +69,9 @@ function renderLicenseSection(description, badge) {
 	if (description && badge) {
 		return `## License
 			
-  ${badge}
+${badge}
 
-  ${description}`
+${description}`
 	} else {
 		return ''
 	}
