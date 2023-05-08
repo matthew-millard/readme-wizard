@@ -89,9 +89,9 @@ function init() {
 		.then(answers => {
 			const fileName = `${answers.file}.md`
 			const licenseBadge = getLicenseBadge(answers)
-			const licenseDescription = getLicenseDescription(answers)
+			const licenseDescription = getLicenseDescription(licenseBadge[1])
 			return licenseDescription.then(licenseDescription => {
-				const licenseSection = renderLicenseSection(licenseDescription, licenseBadge)
+				const licenseSection = renderLicenseSection(licenseDescription, licenseBadge[0])
 				const template = markdown(answers, licenseSection)
 				writeToFile(fileName, template)
 			})
