@@ -118,8 +118,8 @@ ${data.license}
 
 ## Questions
 
-If you have any questions related to this project, please don't hesitate to email me: ${data.email}.
-If you would like to check out my other projects on Github: ${data.username}.
+If you have any questions related to this project, please don't hesitate to email me: [${data.email}](mailto:${data.email}).
+If you would like to check out my other projects on Github: [${data.username}](${data.username}).
 `
 }
 
