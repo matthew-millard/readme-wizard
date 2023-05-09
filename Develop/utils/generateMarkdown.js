@@ -65,20 +65,16 @@ async function getLicenseDescription(license) {
 
 // TODO: Create a function that returns the license section of README
 // If there is no license, return an empty string
-function renderLicenseSection(description, badge) {
-	if (description && badge) {
-		return `## License
-			
-${badge}
-
-${description}`
+function renderLicenseSection(badge) {
+	if (badge) {
+		return `${badge}`
 	} else {
 		return ''
 	}
 }
 
 // TODO: Create a function to generate markdown for README
-function generateMarkdown(data, licenseSection) {
+function generateMarkdown(data, licenseSection, licenseDescription) {
 	return `# ${data.title}
 
 ${licenseSection}
@@ -115,6 +111,7 @@ ${data.tests}
 ## License
 
 ${data.license}
+${licenseDescription}
 
 ## Questions
 
