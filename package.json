@@ -4,13 +4,17 @@
   "description": "[How to create a Professional README](https://coding-boot-camp.github.io/full-stack/github/professional-readme-guide)",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node Develop/index.js",
+    "test": "jest"
   },
   "keywords": [],
   "author": "",
-  "license": "ISC",
+  "license": "MIT",
   "dependencies": {
     "axios": "^1.4.0",
     "inquirer": "^8.2.5"
+  },
+  "devDependencies": {
+    "jest": "^29.5.0"
   }
 }

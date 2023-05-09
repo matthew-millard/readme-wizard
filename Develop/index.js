@@ -91,8 +91,8 @@ function init() {
 			const licenseBadge = getLicenseBadge(answers)
 			const licenseDescription = getLicenseDescription(licenseBadge[1])
 			return licenseDescription.then(licenseDescription => {
-				const licenseSection = renderLicenseSection(licenseDescription, licenseBadge[0])
-				const template = markdown(answers, licenseSection)
+				const licenseSection = renderLicenseSection(licenseBadge[0])
+				const template = markdown(answers, licenseSection, licenseDescription)
 				writeToFile(fileName, template)
 			})
 		})
