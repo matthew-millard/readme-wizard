@@ -39,4 +39,4 @@ A short and simple permissive license with conditions only requiring preservatio
 ## Questions
 
 If you have any questions related to this project, please don't hesitate to email me: [matthew.richie.millard@gmail.com](mailto:matthew.richie.millard@gmail.com).
-If you would like to check out my other projects on Github: [matthewmillard](matthew-millard).
+If you would like to check out my other projects on Github: [matthew-millard](https://github.com/matthew-millard).
