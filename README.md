@@ -10,6 +10,7 @@ A command-line application that dynamically generates a professional README file
 
 - [Installation](#installation)
 - [Usage](#usage)
+- [Link](#links)
 - [Contribution](#contribution)
 - [Tests](#tests)
 - [License](#license)
@@ -22,6 +23,12 @@ Feel free to clone the repository and open the project folder in your text edito
 ## Usage
 
 ![README Wizard Demo](Develop/assets/images/readme-wizard.gif)
+
+## Links
+
+[README Wizard Demonstration Video Link](https://drive.google.com/file/d/1dvoq5SW7ZTQUTY4fappfM4lvdfRALI9i/view)
+
+[Github Repository](https://github.com/matthew-millard/readme-wizard)
 
 ## Contribution
 
